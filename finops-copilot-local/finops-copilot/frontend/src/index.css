@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-app: #0A0A0B;
+  --bg-card: #141415;
+  --bg-elev: #1C1C1E;
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --accent: #FFD60A;
+  --ai-glow: #0052CC;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #FF3B30;
+  --info: #3B82F6;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 220 14% 96%;
+    --card: 240 3% 8%;
+    --card-foreground: 220 14% 96%;
+    --popover: 240 3% 11%;
+    --popover-foreground: 220 14% 96%;
+    --primary: 220 14% 96%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 240 3% 12%;
+    --secondary-foreground: 220 14% 96%;
+    --muted: 240 3% 14%;
+    --muted-foreground: 220 9% 60%;
+    --accent: 240 3% 14%;
+    --accent-foreground: 220 14% 96%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 220 14% 96%;
+    --border: 240 3% 16%;
+    --input: 240 3% 16%;
+    --ring: 217 91% 60%;
+    --radius: 0.375rem;
+  }
+}
+
+html, body, #root {
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'tnum' 1, 'ss01' 1;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: 'Chivo', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-tab {
+  font-family: 'IBM Plex Mono', monospace;
+  font-feature-settings: 'tnum' 1;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Grain texture overlay */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.bento {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.bento:hover {
+  border-color: var(--border-strong);
+}
+
+.bento-elev {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+}
+
+/* Label style */
+.eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* AI Copilot glowing border */
+.ai-glow:not(.fixed) {
+  position: relative;
+}
+.ai-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 82, 204, 0.6), rgba(0, 82, 204, 0.1) 40%, transparent 60%, rgba(0, 82, 204, 0.4));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+
+/* Table style */
+.finops-table th {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.finops-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 13px;
+}
+.finops-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Chat markdown */
+.chat-msg p { margin: 0 0 8px 0; }
+.chat-msg p:last-child { margin-bottom: 0; }
+
+/* App override — remove any center */
+.App { text-align: left; }
+
+/* Focus ring */
+input:focus-visible, button:focus-visible, textarea:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+}

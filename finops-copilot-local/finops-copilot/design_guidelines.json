@@ -1,0 +1,114 @@
+{
+  "theme": {
+    "mode": "dark-first",
+    "description": "Dark-first, 'Swiss Brutalist' meets 'Performance Pro' aesthetic optimized for high-density financial data. Prioritizes readability during long sessions, using off-white text and charcoal surfaces with semantic color accents."
+  },
+  "typography": {
+    "headings": {
+      "family": "Chivo",
+      "fallback": "sans-serif",
+      "weights": ["400", "700"],
+      "classes": "font-sans tracking-tight"
+    },
+    "body": {
+      "family": "IBM Plex Sans",
+      "fallback": "sans-serif",
+      "weights": ["400", "500", "600"],
+      "classes": "font-sans tabular-nums"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl font-bold tracking-tighter text-gray-100",
+      "h2": "text-2xl sm:text-3xl font-semibold tracking-tight text-gray-100",
+      "h3": "text-xl sm:text-2xl font-medium tracking-tight text-gray-200",
+      "body": "text-sm md:text-base text-gray-300",
+      "labels": "text-xs font-semibold tracking-[0.2em] uppercase text-gray-400"
+    }
+  },
+  "colors": {
+    "background": {
+      "app": "#0A0A0B",
+      "card": "#141415",
+      "elevated": "#1C1C1E"
+    },
+    "border": {
+      "default": "rgba(255, 255, 255, 0.1)",
+      "focus": "rgba(255, 255, 255, 0.3)"
+    },
+    "text": {
+      "primary": "#F3F4F6",
+      "secondary": "#9CA3AF",
+      "muted": "#6B7280"
+    },
+    "semantic": {
+      "success": "#10B981",
+      "warning": "#FFD60A",
+      "destructive": "#FF3B30",
+      "info": "#3B82F6"
+    },
+    "charts": {
+      "blue": "#3B82F6",
+      "indigo": "#6366F1",
+      "amber": "#F59E0B",
+      "emerald": "#10B981",
+      "rose": "#F43F5E"
+    },
+    "ai_accent": "#0052CC"
+  },
+  "grids_and_layouts": {
+    "spacing_scale": "Tailwind standard, but favor generous padding (p-6, p-8) within widgets for breathability despite dense data.",
+    "dashboard_grid": "MODE B: High Density Grid. Base grid grid-cols-1 md:grid-cols-4. Tight gaps (gap-4 or gap-6).",
+    "widget_spans": {
+      "kpi_summary": "col-span-1 (Single metric)",
+      "primary_chart": "col-span-2 row-span-2 or col-span-3",
+      "lists_or_feeds": "col-span-1 row-span-2"
+    },
+    "alignment": "Left-align paragraphs, labels, and numbers (using tabular-nums). Avoid center-alignment on data widgets."
+  },
+  "components": {
+    "cards": "Minimalist bento boxes. Background #141415, 1px solid border-white/10, rounded-md (4px or 8px max). NO drop shadows. Flat, crisp edges.",
+    "buttons": "Sharp edges or slightly rounded (rounded-md). Hover states must lighten background and text. Primary button uses brand blue or warning yellow for actions.",
+    "ai_drawer": "Side sheet (Shadcn Sheet component). Elevated background (#1C1C1E) with subtle inner border. Use a 'Tracing Beam' or subtle glowing border to indicate AI context.",
+    "charts": "Recharts via Shadcn chart wrappers. Use dark-mode specific semantic colors for series. Gridlines must be extremely subtle (stroke-white/5).",
+    "tables": "Shadcn Table. Clean row separators (border-b border-white/5). Tabular figures for all costs. Align amounts to right.",
+    "icons": "Phosphor Icons (@phosphor-icons/react) for a sharp, technical aesthetic."
+  },
+  "visual_enhancers": {
+    "glassmorphism": "Used ONLY for sticky headers or floating navs. bg-black/60 with backdrop-blur-xl and border-b border-white/10. NO fully transparent headers.",
+    "micro_interactions": "Subtle -translate-y-[1px] and border-white/20 on card hover. Smooth accordion for recommendations.",
+    "data_density": "Use progressive disclosure. Show summary metric, reveal drill-down details via hover or click."
+  },
+  "accessibility": {
+    "contrast": "Ensure text contrast meets APCA/WCAG standards. Off-white on charcoal passes comfortably.",
+    "motion": "Respect prefers-reduced-motion. Avoid heavy parallax in data-heavy screens.",
+    "focus": "Clear focus rings (ring-2 ring-blue-500 ring-offset-2 ring-offset-[#0A0A0B]) on all inputs.",
+    "testing": "All interactive elements MUST include a data-testid attribute in kebab-case, role-based."
+  },
+  "image_urls": {
+    "login_background": {
+      "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzB8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGRhdGElMjB2aXN1YWxpemF0aW9uJTIwZGFyayUyMG1vZGV8ZW58MHx8fHwxNzg4ODk0OTU4fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract data visualization for the login screen background overlay."
+    },
+    "ai_avatar": {
+      "url": "https://images.unsplash.com/photo-1633311905139-7b6088a69e33?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwyfHxhaSUyMGdsb3dpbmclMjBhdmF0YXIlMjBmYWNlfGVufDB8fHx8MTc4ODg5NDk1OHww&ixlib=rb-4.1.0&q=85",
+      "description": "Glowing AI letters to be used as the avatar for the Copilot in the chat drawer."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Implement a dark-first theme using Tailwind classes (bg-[#0A0A0B]).",
+    "Use IBM Plex Sans for all numeric data and tabular displays to ensure vertical alignment of financial figures.",
+    "Construct the dashboard using the Bento grid protocol (MODE B) for high density.",
+    "Integrate Shadcn components for forms, tables, and dialogs, stripping out default styling to match the flat, border-driven aesthetic.",
+    "Build the AI Copilot as a persistent, accessible side drawer using Framer Motion for entry/exit.",
+    "Ensure all interactive elements have 'data-testid' attributes.",
+    "Never use generic centered layouts or simplistic gradients. Create depth via overlapping surfaces (bg-[#141415] on bg-[#0A0A0B]).",
+    "Install required fonts and libraries: yarn add @phosphor-icons/react recharts framer-motion lucide-react sonner"
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not apply universal transition: all. Use specific transitions.",
+    "Do not center align the app container (.App { text-align: center; } is forbidden).",
+    "Use modern button styles (sharp or slightly rounded) with distinct hover states.",
+    "Never use emoji characters (🤖, etc.) for icons. Use the specified icon library.",
+    "Implement toast notifications using 'sonner'.",
+    "Add data-testid attributes to all buttons, links, and forms for testing."
+  ]
+}
